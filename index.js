@@ -10,12 +10,12 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
-// index route
-app.get('/', (request, response) =>{
+// signup route
+app.get('/signup', (request, response) =>{
     response.render('index')
 })
 
-app.post('/',  async (request, response) =>{
+app.post('/signup',  async (request, response) =>{
     const {email, password, age, plan} = request.body;
     const seclock = "No";
     const auth = new google.auth.GoogleAuth({
